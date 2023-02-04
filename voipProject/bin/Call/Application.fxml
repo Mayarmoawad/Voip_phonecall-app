@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="450.0" maxWidth="800.0" prefHeight="450.0" prefWidth="800.0" stylesheets="@/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Call.ApplicationController">
+   <children>
+      <TabPane fx:id="tabPane" stylesheets="@/style.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab fx:id="mainTab" text="VoIP Call">
+            <content>
+              <AnchorPane fx:id="anchorMain" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="logo" fitHeight="80.0" fitWidth="80.0" layoutX="205.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="31.0">
+                           <image>
+                              <Image url="@/images/voip.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="connectionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="152.0" prefHeight="30.0" prefWidth="190.0" stylesheets="@/style.css" text="CALL" textFill="#a3ff8e" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="152.0">
+                           <padding>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="receiverLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="174.0" prefHeight="30.0" prefWidth="190.0" stylesheets="@/style.css" text="&quot;Bob&quot; &lt;sip:bob@127.0.0.1:5080&gt;" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="180.0">
+                           <padding>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="hangUpButton" layoutX="265.0" layoutY="236.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#hangUp" prefHeight="30.0" prefWidth="100.0" stylesheets="@/style.css" text="HANG UP" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="280.0">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/end-call.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font></Button>
+                        <Button fx:id="callButton" layoutX="125.0" layoutY="236.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#call" prefHeight="30.0" prefWidth="100.0" stylesheets="@/style.css" text="CALL" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="240.0">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/call.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font></Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="audioTab" text="Audio">
+                <content>
+                    <AnchorPane fx:id="anchorAudio" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <ImageView fx:id="audio" fitHeight="80.0" fitWidth="80.0" layoutX="205.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="31.0">
+                                <image>
+                                    <Image url="@../images/sound-control.png" />
+                                </image>
+                            </ImageView>
+                            <Label fx:id="audioControlLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="125.0" prefHeight="23.0" prefWidth="100.0" stylesheets="@/style.css" text="Audio Control" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="125.0">
+                                <padding>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                </padding>
+                                <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                </font>
+                            </Label>
+                            <Button fx:id="spoiledAudioButton" contentDisplay="TOP" layoutX="296.0" layoutY="179.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendSpoiledAudio" prefHeight="45.0" prefWidth="45.0" stylesheets="@/style.css" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="459.0" AnchorPane.topAnchor="179.0">
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../images/wave-sound.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="sinusoidalAudioButton" contentDisplay="TOP" layoutX="466.0" layoutY="179.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendSinusoidalAudio" prefHeight="45.0" prefWidth="45.0" stylesheets="@/style.css" AnchorPane.leftAnchor="466.0" AnchorPane.rightAnchor="289.0" AnchorPane.topAnchor="179.0">
+                                <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../images/voice-record.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        <Button fx:id="fileAudioButton" contentDisplay="TOP" layoutX="383.0" layoutY="179.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendImperialMarch" prefHeight="45.0" prefWidth="45.0" stylesheets="@/style.css" AnchorPane.leftAnchor="383.0" AnchorPane.rightAnchor="372.0" AnchorPane.topAnchor="179.0">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/light-saber.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                            <Button fx:id="stopButton" contentDisplay="TOP" layoutX="383.0" layoutY="251.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#stopAudio" prefHeight="45.0" prefWidth="45.0" stylesheets="@/style.css" AnchorPane.leftAnchor="383.0" AnchorPane.rightAnchor="372.0" AnchorPane.topAnchor="251.0">
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../images/stop.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+          <Tab fx:id="logsTab" text="Logs">
+            <content>
+              <AnchorPane fx:id="anchorLogs" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="logsButton" fitHeight="80.0" fitWidth="80.0" layoutX="113.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="113.0" AnchorPane.rightAnchor="599.0" AnchorPane.topAnchor="58.0">
+                           <image>
+                              <Image url="@../images/log.png" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutX="93.0" layoutY="157.0" prefHeight="25.0" prefWidth="120.0" text="Session Logs " textAlignment="CENTER" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="579.0" AnchorPane.topAnchor="157.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="saveLogsButton" layoutX="93.0" layoutY="229.0" mnemonicParsing="false"  prefHeight="28.0" prefWidth="120.0" stylesheets="@/style.css" text="Save" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="579.0" AnchorPane.topAnchor="225.0">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font></Button>
+                        <Button fx:id="updateButton" layoutX="93.0" layoutY="269.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="120.0" stylesheets="@/style.css" text="Update" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="579.0" AnchorPane.topAnchor="260.0">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font></Button>
+                        <ScrollPane fx:id="logsScrollPane" layoutX="278.0" layoutY="27.0" prefHeight="350.0" prefWidth="490.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="27.0">
+                          <content>
+                            <AnchorPane prefHeight="500.0" prefWidth="490.0">
+                                 <children>
+                                    <TextFlow fx:id="logsTextFlow" layoutX="11.0" layoutY="7.0">
+                                       <padding>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </padding></TextFlow>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="settingsTab" text="Settings">
+                <content>
+                    <AnchorPane fx:id="anchorSettings" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@/style.css">
+                        <children>
+                            <ImageView fx:id="settings" fitHeight="80.0" fitWidth="80.0" layoutX="151.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="569.0" AnchorPane.topAnchor="100.0">
+                                <image>
+                                    <Image url="@../images/settings.png" />
+                                </image>
+                            </ImageView>
+                            <Label fx:id="ApplicationSettingsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="128.0" layoutY="187.0" prefHeight="23.0" prefWidth="125.0" stylesheets="@/style.css" text="Application Settings" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="547.0" AnchorPane.topAnchor="187.0">
+                                <padding>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                </padding>
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Label>
+                        <Label layoutX="339.0" layoutY="51.0" text="UserAgent Name:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="userNameTextBox" layoutX="483.0" layoutY="51.0" prefHeight="30.0" prefWidth="120.0" promptText="e.g. Joe" AnchorPane.leftAnchor="483.0" AnchorPane.rightAnchor="197.0" />
+                        <Label layoutX="340.0" layoutY="96.0" text="CALL-ID:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="call_idLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="483.0" layoutY="95.0" prefHeight="30.0" prefWidth="120.0" style="-fx-border-color: #000000;" AnchorPane.leftAnchor="483.0" AnchorPane.rightAnchor="197.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="339.0" layoutY="141.0" text="Receiver Tag:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="receiverTagLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="483.0" layoutY="140.0" prefHeight="30.0" prefWidth="120.0" style="-fx-border-color: #000000;" AnchorPane.leftAnchor="483.0" AnchorPane.rightAnchor="197.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="340.0" layoutY="186.0" text="Wave Frequency:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="frequencyTextBox" layoutX="483.0" layoutY="186.0" prefHeight="30.0" prefWidth="120.0" promptText="e.g. 200" AnchorPane.leftAnchor="483.0" AnchorPane.rightAnchor="197.0" />
+                        <Label layoutX="340.0" layoutY="231.0" text="Wave Amplitude:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="amplitudeTextBox" layoutX="483.0" layoutY="231.0" prefHeight="30.0" prefWidth="120.0" promptText="e.g. 4000" AnchorPane.leftAnchor="483.0" AnchorPane.rightAnchor="197.0" />
+                        <Button fx:id="saveSettingsButton" defaultButton="true" layoutX="483.0" layoutY="285.0" mnemonicParsing="false" onAction="#saveSettings" prefHeight="30.0" prefWidth="120.0" stylesheets="@/style.css" text="Save" AnchorPane.leftAnchor="483.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="285.0">
+                           <font>
+                              <Font name="Arial Bold" size="12.0" />
+                           </font></Button>
+                        </children>
+                    </AnchorPane>
+                </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
